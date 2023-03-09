@@ -34,3 +34,10 @@ class ProductPageLocators():
     SUCCESS_MESSAGE = (By.CSS_SELECTOR, "#messages > .alert-success:nth-child(1)")
     NAME_OF_ADDED_PRODUCT = (By.CSS_SELECTOR, "div.alert:nth-child(1) strong")
     TOTAL_PRICE = (By.CSS_SELECTOR, ".alertinner p strong")
+
+
+class BasketPageLocators():
+    VIEW_BASKET = (By.CSS_SELECTOR, ".btn-group > a[href*='basket']")
+    VIEW_BASKET_INVALID = (By.CSS_SELECTOR, ".btn-group > a[href*='basket']")  # for checking the correct error message
+    EMPTY_BASKET_MESSAGE = (By.CSS_SELECTOR, "#content_inner > p")
+    FILLED_BASKET = (By.CSS_SELECTOR, ".basket-items")
