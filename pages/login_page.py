@@ -1,5 +1,6 @@
 from .base_page import BasePage
 from .locators import LoginPageLocators
+import time
 
 
 class LoginPage(BasePage):
@@ -25,3 +26,11 @@ class LoginPage(BasePage):
         assert self.is_element_present(*LoginPageLocators.SIGN_UP_PASSWORD_REPETITION), "Sign up password2 is not " \
                                                                                         "displayed"
         assert self.is_element_present(*LoginPageLocators.SIGN_UP_BUTTON), "SIGN_BUTTON is not displayed"
+
+    def register_new_user(self):
+        email = str(time.time()) + "@fakemail.org"
+        password = str(time.time()) + "testpassword"
+        self.browser.find_element(*LoginPageLocators.SIGN_UP_EMAIL).send_keys(email)
+        self.browser.find_element(*LoginPageLocators.SIGN_UP_PASSWORD).send_keys(password)
+        self.browser.find_element(*LoginPageLocators.SIGN_UP_PASSWORD_REPETITION).send_keys(password)
+        self.browser.find_element(*LoginPageLocators.SIGN_UP_BUTTON).click()
